@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations! You Won!</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffeb3b;
+            margin: 0;
+            padding: 50px;
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 3rem;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #388E3C;
+        }
+        #errorMessage {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Congratulations! You Won a Special Prize! 🎉</h1>
+    <p>Click the button below to claim your reward.</p>
+    <button class="button" onclick="claimPrize()">Claim Now</button>
+    <p id="errorMessage"></p>
+
+    <script>
+        function claimPrize() {
+            let messages = [
+                "Oops! Server Error 500! Try again later!",
+                "Oh no! Prize link expired! 😢",
+                "Hmm... Something went wrong!",
+                "Error: Too many winners! Try again tomorrow!",
+                "Congratulations! Just kidding! 😂"
+            ];
+            
+            let randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById("errorMessage").innerText = randomMessage;
+            document.getElementById("errorMessage").style.display = "block";
+        }
+    </script>
+</body>
+</html>
